@@ -23,11 +23,9 @@ function animate() {
     c.fillStyle = 'white'
     c.clearRect(0, 0, canvas.width, canvas.height)
     player.velocity.x = 0
-    if(keys.d.pressed) {
-      player.velocity.x = 1
-    } else if (keys.a.pressed) {
-      player.velocity.x = -1
-    }
+    if(keys.d.pressed) player.velocity.x = 5
+    else if (keys.a.pressed) player.velocity.x = -5
+    
     player.draw()
     player.update()
 
@@ -35,33 +33,3 @@ function animate() {
 
 animate()
 
-window.addEventListener('keydown', (event) => {
-    switch (event.key) {
-        case 'w':
-            if (player.velocity.y === 0) player.velocity.y = -20
-            break
-        case 'a':
-            keys.a.pressed = true
-            break
-        case 'd':
-            keys.d.pressed = true
-            break
-
-            
-    }
-})
-
-window.addEventListener('keyup', (event) => {
-    switch (event.key) {
-        case 'a':
-            // left
-            keys.a.pressed = false 
-            break
-        case 'd':
-            // right
-            keys.d.pressed = false
-            break
-
-            
-    }
-})
